@@ -1,9 +1,9 @@
 package com.application;
 
 
+import com.controller.MainImuFakeController;
 import com.fxml.FXMLUtils;
-import com.user.*;
-
+import com.user.propertyHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -12,15 +12,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.*;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
-import com.controller.MainImuController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -62,7 +63,7 @@ public class MainScene extends Application implements Initializable {
 
     private XYChart.Series chartSeries;
 
-    private MainImuController mainImuController;
+    private MainImuFakeController mainImuController;
 
 
     public void setRis1(final String t) {
@@ -206,8 +207,14 @@ public class MainScene extends Application implements Initializable {
 //        this.chart.getData().add(series);
     }
 
-    public void rotateOrizzonte(double angle) {
-        this.orizzonte.setRotate(angle);
+    public void rotateOrizzonte(final double angle) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                orizzonte.setRotate(angle);
+            }
+        });
+
     }
 
     public void connettiPress(ActionEvent actionEvent) {
@@ -256,7 +263,9 @@ public class MainScene extends Application implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         propertyHandler.getInstance().loadProperties();
         setupGUI();
-        this.mainImuController  = new MainImuController(this);
+
+        //this.mainImuController  = new MainImuController(this);
+        this.mainImuController  = new MainImuFakeController(this);
         System.out.println("Chiamato!");
     }
 

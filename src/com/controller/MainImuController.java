@@ -100,19 +100,15 @@ public class MainImuController implements iDataNotifier {
 	@Override
 	public void notifyDataUpdate() {
         double quota = altitudePressureFilter.getState().get(0);
-
         SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
-
       // CC  // primo pattern: 2009, 12, 09
         sdf.applyPattern("HH:mm:ss");
-
         this.mainScene.setRis1(complementaryFilter.getQuaternion().toString());
-        this.mainScene.setRis3("dh:" + String.valueOf(quota));
+        this.mainScene.setRis3(String.format("Quota: %.2f m",quota));
 
         this.mainScene.setRis2(this.complementaryFilter.getQuaternion().toEulerAnglesGrad().toString());
         this.mainScene.setRis4(this.imuReader.toString());
-        Date q = new Date();
-        this.mainScene.pushChartData(sdf.format(q),quota);
+        this.mainScene.pushChartData(sdf.format(new Date()),quota);
         this.mainScene.rotateOrizzonte(this.complementaryFilter.getQuaternion().toEulerAnglesGrad().get(0));
     }
 
