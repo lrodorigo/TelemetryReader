@@ -5,7 +5,6 @@ import com.application.MainScene;
 import com.calibration.GyroCalibrator;
 import com.filtering.AltitudePressureFilter;
 import com.filtering.ComplementaryFilter;
-import com.filtering.OpenLoopIntegrator;
 import com.imureader.IMUReader;
 import com.imureader.iDataNotifier;
 import com.user.propertyHandler;
@@ -54,7 +53,7 @@ public class MainImuController implements iDataNotifier {
         this.mainScene.setStatusLabel("Calibrazione giroscopi effettuata");
 
 
-        this.openLoop = new OpenLoopIntegrator();
+     //   this.openLoop = new OpenLoopIntegrator();
         this.complementaryFilter =  new ComplementaryFilter();
         this.gyroCalibrator = new GyroCalibrator();
 
