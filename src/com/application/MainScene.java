@@ -118,9 +118,10 @@ public class MainScene extends Application implements Initializable {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(FXMLUtils.getInstance().getSceneURL("MainScene"));
         Scene scene = new Scene(root, 1280, 720);
-        primaryStage.setTitle("IMU Telemetry Reader");
+        primaryStage.setTitle("IMU Telemetry Reader v1.0");
         primaryStage.setScene(scene);
         primaryStage.show();
+
      //   Thread.yield();
 
 
@@ -171,13 +172,14 @@ public class MainScene extends Application implements Initializable {
 
         this.chart.setTitle("Quota [m]");
         CategoryAxis xAxis= (CategoryAxis) this.chart.getXAxis();
-        xAxis.setLabel("X Axis");
+        xAxis.setLabel("Ora");
         NumberAxis yAxis= (NumberAxis) this.chart.getYAxis();
-        yAxis.setLabel("Y Axis");
+        yAxis.setLabel("Quota");
 
         this.chartSeries = new XYChart.Series();
-        this.chartSeries.setName("My portfolio");
 
+        //
+    //    this.chartSeries.setName("My portfolio");
         this.chart.getData().add(this.chartSeries);
 
 //        NumberAxis quota = new NumberAxis();

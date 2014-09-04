@@ -13,6 +13,9 @@ import com.imureader.iDataNotifier;
 import com.user.propertyHandler;
 import org.la4j.vector.dense.BasicVector;
 
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainImuController implements iDataNotifier {
@@ -104,13 +107,18 @@ public class MainImuController implements iDataNotifier {
 	public void notifyDataUpdate() {
         double quota = altitudePressureFilter.getState().get(0);
 
+        SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
+
+        // primo pattern: 2009, 12, 09
+        sdf.applyPattern("HH:mm:ss");
+
         this.mainScene.setRis1(complementaryFilter.getQuaternion().toString());
         this.mainScene.setRis3("dh:" + String.valueOf(quota));
 
         this.mainScene.setRis2(this.complementaryFilter.getQuaternion().toEulerAnglesGrad().toString());
         this.mainScene.setRis4(this.imuReader.toString());
         Date q = new Date();
-        this.mainScene.pushChartData(q.toString(),quota);
+        this.mainScene.pushChartData(sdf.format(q),quota);
         this.mainScene.rotateOrizzonte(this.complementaryFilter.getQuaternion().toEulerAnglesGrad().get(0));
     }
 
