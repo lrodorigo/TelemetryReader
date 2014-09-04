@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="BOTTOM_RIGHT" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <stylesheets>
+    <URL value="@MainScene.css" />
+  </stylesheets>
+   <children>
+      <Accordion>
+        <panes>
+          <TitledPane animated="false" prefHeight="487.0" prefWidth="640.0" text="Risultati Integrazione">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="9.600000381469727" layoutY="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Label fx:id="ris1" layoutX="126.0" layoutY="24.0" prefHeight="46.0" text="Label" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ris2" layoutX="10.0" layoutY="10.0" text="Label">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ris3" layoutX="10.0" layoutY="56.0" text="Label">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Label>
+                              <LineChart fx:id="chart" prefHeight="0.0" VBox.vgrow="NEVER">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="435.0" prefWidth="640.0" text="Calibrazione Giroscopio">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="startGyroCal" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startGyroCalAction" text="Start" />
+                        <Button fx:id="stopGyroCal" layoutX="62.0" layoutY="14.0" mnemonicParsing="false" onAction="#stopGyroCalAction" text="Stop" />
+                        <TextArea fx:id="calTextArea" layoutX="18.6" layoutY="52.0" prefHeight="255.0" prefWidth="619.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</VBox>

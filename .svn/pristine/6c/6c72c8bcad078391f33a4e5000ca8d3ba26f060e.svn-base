@@ -1,0 +1,24 @@
+import java.util.Enumeration;
+
+import javax.comm.*;
+
+public class Test {
+
+	public static void main(String[] args) {
+		IMUReader r = new IMUReader(10); 
+		r.start("COM10");
+		sleep(2000);
+		r.stop();
+		sleep(500);
+		
+	}
+public static void sleep(int ms) {
+	try {
+		Thread.sleep(ms);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+}
+

@@ -1,0 +1,124 @@
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+
+import javax.comm.CommPortIdentifier;
+import javax.comm.PortInUseException;
+import javax.comm.SerialPort;
+import javax.comm.UnsupportedCommOperationException;
+
+//import SerialPort.SerialPort;
+
+
+public class IMUReader implements Runnable {
+
+	
+	private int[]   data;
+	private int     dataSize;
+	private boolean running;
+	private SerialPort serial;
+	
+	
+	public final static char    START_CHAR = 'S';
+	public final static char    END_CHAR = 'E';
+	
+	private Thread readThread;
+	
+	public IMUReader(int dataSize) {
+		this.dataSize = dataSize;
+	}
+	
+	public void start(String serialPortName) {
+		CommPortIdentifier port = this.getPortByName(serialPortName);
+		
+		try {
+			this.serial = (SerialPort) port.open("name", 1500);
+			this.serial.setSerialPortParams(115200, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+
+			this.readThread = new Thread(this,"IMU-READER");
+			this.running = true;
+			
+			serialWrite(100);
+			
+			this.readThread.start();
+			
+		} catch (PortInUseException e) {
+			System.out.println("PORT " + serialPortName + " IS IN USE");
+			return;
+		} catch (UnsupportedCommOperationException e) {
+			return;
+		}  
+		    
+		
+	}
+	
+	
+	private CommPortIdentifier getPortByName(String name) {
+	    Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+	    
+	    while (ports.hasMoreElements()) {
+	      CommPortIdentifier port = (CommPortIdentifier)ports.nextElement();	 
+	      if (port.getPortType() == CommPortIdentifier.PORT_SERIAL && port.getName().equals(name)) 
+	    	  return port;
+	      
+	    }
+	    
+	    System.out.println("ERROR!! UNABLE TO FIND PORT "+name);
+	    return null;
+	}
+	
+	public int[] getLastData() {
+		 synchronized (this.data) {
+				return this.data;			
+		}
+	}
+	
+	public void stop() {
+		
+		this.running = false;
+
+	}
+	
+	private void serialWrite(int data) {
+		try {
+			serial.getOutputStream().write(data);
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		int data_in;
+		
+		InputStream inStream = null;
+		try {
+			inStream = this.serial.getInputStream();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("ERROR WITH SERIAL PORT STREAM");
+		}
+		System.out.println("Starting data reception");
+		
+		while (this.running) {
+			try {
+				data_in = inStream.read();
+				
+				
+				
+				System.out.println(serial.getInputStream().read());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
+	
+
+}

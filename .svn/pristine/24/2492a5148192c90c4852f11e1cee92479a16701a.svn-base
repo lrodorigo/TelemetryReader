@@ -1,0 +1,43 @@
+import java.util.Enumeration;
+
+import javax.comm.*;
+
+import com.imureader.IMUReader;
+
+public class Test {
+
+	public static void main(String[] args) {
+		IMUReader r = new IMUReader(10); 
+		System.out.println("test");
+		r.start("COM36");
+		while (!r.isReady());
+		int[] dati;
+		int ultimo;
+		dati = r.getData();
+		ultimo = dati[0];
+		while (true) {
+			dati = r.getData();
+			if (dati[0] != ultimo) {
+				System.out.println(IMUReader.intToString(dati));
+				ultimo=dati[0];
+			}
+	
+		}
+		
+		/*
+		sleep(2000);
+		r.stop();
+		sleep(500);*/
+		
+	}
+	
+	public static void sleep(int ms) {
+		try {
+			Thread.sleep(ms);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
