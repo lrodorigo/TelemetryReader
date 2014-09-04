@@ -1,20 +1,16 @@
 package com.controller;
 
 
-
 import com.application.MainScene;
 import com.calibration.GyroCalibrator;
 import com.filtering.AltitudePressureFilter;
 import com.filtering.ComplementaryFilter;
 import com.filtering.OpenLoopIntegrator;
 import com.imureader.IMUReader;
-import com.imureader.Utils;
 import com.imureader.iDataNotifier;
 import com.user.propertyHandler;
 import org.la4j.vector.dense.BasicVector;
 
-import javax.swing.text.DateFormatter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -22,7 +18,6 @@ public class MainImuController implements iDataNotifier {
 
     private IMUReader imuReader = IMUReader.getInstance();
 	private ComplementaryFilter complementaryFilter;
-    private OpenLoopIntegrator openLoop;
 	private GyroCalibrator gyroCalibrator;
     private AltitudePressureFilter altitudePressureFilter;
 	private MainScene mainScene;
@@ -38,7 +33,7 @@ public class MainImuController implements iDataNotifier {
     public void connect() {
         //     t.setStatusLabel("Connessione in corso ...");
 
-        boolean e = false;
+        boolean e;
         e = imuReader.start("COM33", 115200, 20000);
 
         if (!e) {
@@ -52,7 +47,7 @@ public class MainImuController implements iDataNotifier {
         (new Runnable() {
             @Override
             public void run() {
-                IMUReader.getInstance().gyroCalibrateZeroValues(50).toString();
+                IMUReader.getInstance().gyroCalibrateZeroValues(50);
             }
         }).run();
 
@@ -109,7 +104,7 @@ public class MainImuController implements iDataNotifier {
 
         SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
 
-        // primo pattern: 2009, 12, 09
+      // CC  // primo pattern: 2009, 12, 09
         sdf.applyPattern("HH:mm:ss");
 
         this.mainScene.setRis1(complementaryFilter.getQuaternion().toString());
