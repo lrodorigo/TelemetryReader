@@ -1,6 +1,8 @@
 package com.application;
 
 
+import com.controller.MainImuAbstractController;
+import com.controller.MainImuController;
 import com.controller.MainImuFakeController;
 import com.fxml.FXMLUtils;
 import com.model.user.propertyHandler;
@@ -59,15 +61,16 @@ public class MainScene extends Application implements Initializable {
     private XYChart.Series chartSeries;
 
   //private MainImuController mainImuController;
-    private MainImuFakeController mainImuController;
+    private MainImuAbstractController mainImuController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         propertyHandler.getInstance().loadProperties();
         setupGUI();
 
-        //this.mainImuController  = new MainImuController(this);
-        this.mainImuController  = new MainImuFakeController(this);
+        this.mainImuController  = new MainImuController(this);
+
+
         System.out.println("Chiamato!");
     }
 
@@ -188,6 +191,11 @@ public class MainScene extends Application implements Initializable {
     }
 
     public void connettiPress(ActionEvent actionEvent) {
+        if (this.checkboxDatiSimulati.isSelected())
+            this.mainImuController  = new MainImuFakeController(this);
+        else
+            this.mainImuController  = new MainImuController(this);
+
         this.mainImuController.connect();
     }
 
@@ -232,7 +240,7 @@ public class MainScene extends Application implements Initializable {
 
 
     public void resetAltStatus(ActionEvent actionEvent) {
-        this.mainImuController.setupAltitudeFilter();
+        this.mainImuController.resetAltitudeFilter();
     }
 
 

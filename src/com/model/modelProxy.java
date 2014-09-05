@@ -84,21 +84,20 @@ public class modelProxy implements iDataNotifier {
 
         this.complementaryFilter =  new ComplementaryFilter();
         this.gyroCalibrator = new GyroCalibrator();
-        setupAltitudeFilter();
+        this.altitudePressureFilter = new AltitudePressureFilter(this.imuReader.getTemp(),imuReader.getPress(),0,this.complementaryFilter);
+
+        setAltitudeFilter();
         this.imuReader.subscribe(this.complementaryFilter);
         this.imuReader.subscribe(gyroCalibrator);
         this.imuReader.subscribe(altitudePressureFilter);
-        this.imuReader.subscribe(this);
+  //      this.imuReader.subscribe(this);
     }
 
-    public void setupAltitudeFilter() {
-        this.imuReader.unscribe(this.altitudePressureFilter);
-        this.altitudePressureFilter = new AltitudePressureFilter(this.imuReader.getTemp(),imuReader.getPress(),0,this.complementaryFilter);
+    public void setAltitudeFilter() {
         this.altitudePressureFilter.setCovAcc(propertyHandler.getInstance().covAcc);
         this.altitudePressureFilter.setCovAccMis(propertyHandler.getInstance().covAccMis);
         this.altitudePressureFilter.setCovBias(propertyHandler.getInstance().covBias);
         this.altitudePressureFilter.setCovPress(propertyHandler.getInstance().covPress);
-        this.imuReader.subscribe(this.altitudePressureFilter);
     }
 
 
@@ -124,17 +123,7 @@ public class modelProxy implements iDataNotifier {
     @Override
     public void notifyDataUpdate() {
    /*
-        double quota = altitudePressureFilter.getState().get(0);
-        SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
-        // CC  // primo pattern: 2009, 12, 09
-        sdf.applyPattern("HH:mm:ss");
-        this.mainScene.setRis1(complementaryFilter.getQuaternion().toString());
-        this.mainScene.setRis3(String.format("Quota: %.2f m",quota));
 
-        this.mainScene.setRis2(this.complementaryFilter.getQuaternion().toEulerAnglesGrad().toString());
-        this.mainScene.setRis4(this.imuReader.toString());
-        this.mainScene.pushChartData(sdf.format(new Date()),quota);
-        this.mainScene.rotateOrizzonte(this.complementaryFilter.getQuaternion().toEulerAnglesGrad().get(0));
     */
     }
 

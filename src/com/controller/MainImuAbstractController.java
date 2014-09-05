@@ -12,7 +12,9 @@ public abstract class MainImuAbstractController {
     public abstract void connect() ;
     public abstract void startGyroCalibration();
     public abstract void stopGyroCalibration();
+    public abstract void resetAltitudeFilter();
     public abstract void storeGyroCalibration(int i);
+
     public abstract void notifyDataUpdate();
     public abstract BasicVector doGyroZero();
 
