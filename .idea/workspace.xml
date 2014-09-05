@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fea23dc-beb1-44b2-a565-7351568e0138" name="Default" comment="Mod">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/fxml/MainScene.fxml" afterPath="$PROJECT_DIR$/src/com/fxml/MainScene.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/application/MainScene.java" afterPath="$PROJECT_DIR$/src/com/application/MainScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TelemetryReader.iws" />
@@ -66,8 +64,8 @@
       <file leaf-file-name="MainScene.fxml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/fxml/MainScene.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.821429" vertical-offset="3401" max-vertical-offset="10868">
-              <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+            <state vertical-scroll-proportion="-4.821429" vertical-offset="3245" max-vertical-offset="10712">
+              <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -593,7 +591,11 @@
       <created>1409913598771</created>
       <updated>1409913598771</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mod">
+      <created>1409922726099</created>
+      <updated>1409922726099</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1041,8 +1043,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/fxml/MainScene.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.821429" vertical-offset="3401" max-vertical-offset="10868">
-          <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+        <state vertical-scroll-proportion="-4.821429" vertical-offset="3245" max-vertical-offset="10712">
+          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
           <folding />
         </state>
       </provider>
