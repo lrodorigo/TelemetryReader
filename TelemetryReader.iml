@@ -21,9 +21,9 @@
           <root url="jar://$MODULE_DIR$/lib/comm.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
       </library>
     </orderEntry>
+        <SOURCES />
     <orderEntry type="module-library">
       <library name="vecmath.jar">
         <CLASSES>
