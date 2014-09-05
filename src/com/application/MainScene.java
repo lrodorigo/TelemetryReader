@@ -80,16 +80,14 @@ public class MainScene extends Application implements Initializable {
         FXMLLoader  ff = new FXMLLoader();
 
         this.mainImuController  = new MainImuController(this);
-        instrumentsPane.getChildren().clear();
+
 
         FXMLLoader loader = new FXMLLoader(FXMLUtils.getInstance().getSceneURL("instruments/altimeter"));
-
         try {
-            instrumentsPane.getChildren().add((Node) loader.load());
+            instrumentsPane.getChildren().set(0,(Node) loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         this.altimeterController = loader.getController();
 
