@@ -65,7 +65,24 @@ public class MainScene extends Application implements Initializable {
 
     private XYChart.Series chartSeries;
 
+  //  private MainImuController mainImuController;
+
+
     private MainImuFakeController mainImuController;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        propertyHandler.getInstance().loadProperties();
+        setupGUI();
+
+        //this.mainImuController  = new MainImuController(this);
+        this.mainImuController  = new MainImuFakeController(this);
+        System.out.println("Chiamato!");
+    }
+
+
+
+
 
 
     public void setRis1(final String t) {
@@ -265,15 +282,7 @@ public class MainScene extends Application implements Initializable {
                 Double.valueOf(this.covMisPressTxt.getText()));
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        propertyHandler.getInstance().loadProperties();
-        setupGUI();
 
-        //this.mainImuController  = new MainImuController(this);
-        this.mainImuController  = new MainImuFakeController(this);
-        System.out.println("Chiamato!");
-    }
 
     public void resetAltStatus(ActionEvent actionEvent) {
         this.mainImuController.setupAltitudeFilter();
