@@ -110,7 +110,7 @@
             </Tab>
             <Tab text="Data Panel">
               <content>
-                <SplitPane dividerPositions="0.1506849315068493" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                <SplitPane dividerPositions="0.5" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                   <items>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="1413.0">
                       <children>
@@ -183,29 +183,12 @@
                                 <NumberAxis side="LEFT" />
                               </yAxis>
                             </LineChart>
-                            <LineChart id="chart" prefHeight="650.0" prefWidth="1413.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                              <xAxis>
-                                <CategoryAxis side="BOTTOM" />
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </LineChart>
-                            <LineChart id="chart" prefHeight="650.0" prefWidth="1413.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                              <xAxis>
-                                <CategoryAxis side="BOTTOM" />
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </LineChart>
                           </children>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                         </GridPane>
@@ -224,37 +207,55 @@
               <content>
                 <Accordion>
                   <expandedPane>
-                    <TitledPane fx:id="x6" animated="false" text="Parametri Filtro Complementare">
+                    <TitledPane fx:id="x5" animated="false" text="Parametri Sensore di Pressione">
                       <content>
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                           <children>
-                            <GridPane layoutX="16.0" layoutY="22.0" prefHeight="180.0" prefWidth="408.0">
+                            <GridPane layoutX="16.0" layoutY="22.0" prefHeight="223.0" prefWidth="552.0">
                               <children>
-                                <Label text="Guadagno kP Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label text="Covarianza Rum. Stato Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="0">
                                   <labelFor>
-                                    <TextField fx:id="accKpTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    <TextField id="" fx:id="covStatAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                   </labelFor>
                                 </Label>
-                                <Label text="Guadagno kP Magnetometro" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label text="Covarianza Bias Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                   <labelFor>
-                                    <TextField id="accKpTxt" fx:id="x4" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField id="accKpTxt" fx:id="covBiasAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                   </labelFor>
                                 </Label>
-                                <fx:reference source="accKpTxt" />
-                                <fx:reference source="x4" />
-                                <Button mnemonicParsing="false" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
-                                <Label text="Guadagno kI" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <fx:reference source="covStatAccTxt" />
+                                <fx:reference source="covBiasAccTxt" />
+                                <Label text="Covarianza Misura Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="2">
                                   <labelFor>
                                     <TextField id="accKpTxt" prefWidth="66.0" />
                                   </labelFor>
                                 </Label>
-                                <TextField id="accKpTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Covarianza Sensore Pressione" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                  <labelFor>
+                                    <TextField id="accKpTxt" prefWidth="66.0" />
+                                  </labelFor>
+                                </Label>
+                                <TextField id="accKpTxt" fx:id="covMisPressTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <TextField id="accKpTxt" fx:id="covMisAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                  <children>
+                                    <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetAltStatus" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Reset Stato" textAlignment="CENTER" />
+                                  </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                  <children>
+                                    <Button mnemonicParsing="false" onAction="#storePressParam" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Store" />
+                                  </children>
+                                </HBox>
                               </children>
                               <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="222.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="186.0" />
                               </columnConstraints>
                               <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -326,47 +327,31 @@
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                       </content>
                     </TitledPane>
-                    <fx:reference source="x6" />
-                    <TitledPane fx:id="x5" animated="false" text="Parametri Sensore di Pressione">
+                    <TitledPane fx:id="x6" animated="false" text="Parametri Filtro Complementare">
                       <content>
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                           <children>
-                            <GridPane layoutX="16.0" layoutY="22.0" prefHeight="223.0" prefWidth="552.0">
+                            <GridPane layoutX="16.0" layoutY="22.0" prefHeight="180.0" prefWidth="408.0">
                               <children>
-                                <Label text="Covarianza Rum. Stato Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label text="Guadagno kP Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="0">
                                   <labelFor>
-                                    <TextField id="" fx:id="covStatAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    <TextField fx:id="accKpTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                   </labelFor>
                                 </Label>
-                                <Label text="Covarianza Bias Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label text="Guadagno kP Magnetometro" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                   <labelFor>
-                                    <TextField id="accKpTxt" fx:id="covBiasAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField id="accKpTxt" fx:id="x4" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                   </labelFor>
                                 </Label>
-                                <fx:reference source="covStatAccTxt" />
-                                <fx:reference source="covBiasAccTxt" />
-                                <Label text="Covarianza Misura Accelerometro" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                                  <labelFor>
-                                    <TextField id="accKpTxt" prefWidth="66.0" />
-                                  </labelFor>
-                                </Label>
-                                <Label text="Covarianza Sensore Pressione" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                <fx:reference source="accKpTxt" />
+                                <fx:reference source="x4" />
+                                <Button mnemonicParsing="false" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                                <Label text="Guadagno kI" GridPane.columnIndex="0" GridPane.rowIndex="2">
                                   <labelFor>
                                     <TextField id="accKpTxt" prefWidth="66.0" />
                                   </labelFor>
                                 </Label>
-                                <TextField id="accKpTxt" fx:id="covMisPressTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                <TextField id="accKpTxt" fx:id="covMisAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
-                                  <children>
-                                    <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetAltStatus" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Reset Stato" textAlignment="CENTER" />
-                                  </children>
-                                </HBox>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#storePressParam" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Store" />
-                                  </children>
-                                </HBox>
+                                <TextField id="accKpTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               </children>
                               <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="222.0" />
@@ -377,15 +362,13 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               </rowConstraints>
                             </GridPane>
                           </children>
                         </AnchorPane>
                       </content>
                     </TitledPane>
+                    <fx:reference source="x5" />
                   </panes>
                 </Accordion>
               </content>
