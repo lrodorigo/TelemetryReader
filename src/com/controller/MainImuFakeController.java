@@ -3,16 +3,13 @@ package com.controller;
 
 import com.application.MainScene;
 import com.model.imureader.Gyro;
-import com.model.imureader.iDataNotifier;
-import com.model.user.propertyHandler;
 import org.la4j.vector.dense.BasicVector;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainImuFakeController implements iDataNotifier {
+public class MainImuFakeController extends MainImuAbstractController  {
 
-	private MainScene mainScene;
     private Timer timer ;
     double time;
 
@@ -68,19 +65,6 @@ public class MainImuFakeController implements iDataNotifier {
        return new BasicVector(3);
     }
 
-
-
-    public void storeAltitudeSettings(double covAcc, double covBias, double covAccMis, double covPress) {
-
-
-        propertyHandler.getInstance().covAcc = covAcc;
-        propertyHandler.getInstance().covBias = covBias;
-        propertyHandler.getInstance().covAccMis = covAccMis;
-        propertyHandler.getInstance().covPress = covPress;
-
-        propertyHandler.getInstance().write();
-
-    }
 
 
 
