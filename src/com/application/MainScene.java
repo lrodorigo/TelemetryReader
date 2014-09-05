@@ -7,6 +7,7 @@ import com.user.propertyHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -119,14 +121,17 @@ public class MainScene extends Application implements Initializable {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(FXMLUtils.getInstance().getSceneURL("MainScene"));
         Scene scene = new Scene(root, 1280, 720);
-        scene.getStylesheets().add("MainScene.css");
+        scene.getStylesheets().add(FXMLUtils.getInstance().getSceneCSS("MainScene"));
         primaryStage.setTitle("IMU Telemetry Reader v1.0");
         primaryStage.setScene(scene);
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent t) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
         primaryStage.show();
-
-     //   Thread.yield();
-
-
     }
 
     public Label getStatusLbl() {

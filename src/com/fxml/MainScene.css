@@ -6,3 +6,10 @@
 .menu-bar .menu .label {
     -fx-text-fill: #2d3e4c;
 }
+
+
+.settingsButtons{
+    -fx-base: rgb(30,170,255);
+    -fx-stroke: green;
+    -fx-stroke-width: 5;
+}

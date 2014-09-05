@@ -108,8 +108,8 @@
                                 </Label>
                                 <TextField id="accKpTxt" fx:id="covMisPressTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                 <TextField id="accKpTxt" fx:id="covMisAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <Button mnemonicParsing="false" onAction="#storePressParam" prefHeight="192.0" prefWidth="776.0" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
-                                <Button mnemonicParsing="false" onAction="#resetAltStatus" prefHeight="155.0" prefWidth="615.0" text="Reset Stato" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <Button mnemonicParsing="false" onAction="#storePressParam" prefHeight="192.0" prefWidth="776.0" styleClass="settingsButtons" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
+                                <Button mnemonicParsing="false" onAction="#resetAltStatus" prefHeight="155.0" prefWidth="615.0" styleClass="settingsButtons" text="Reset Stato" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               </children>
                               <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="222.0" />
