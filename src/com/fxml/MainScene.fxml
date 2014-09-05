@@ -6,8 +6,6 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1415.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.application.MainScene">
   <children>
@@ -43,12 +41,6 @@
                                 <Font size="15.0" />
                               </font>
                             </Label>
-                            <StackPane prefHeight="150.0" prefWidth="200.0">
-                              <children>
-                                <Circle fill="#0021cc" radius="100.0" smooth="true" stroke="BLACK" strokeType="INSIDE" />
-                                <Rectangle fx:id="orizzonte" arcHeight="5.0" arcWidth="5.0" fill="#ffb800" height="9.40010108947754" rotate="0.0" stroke="#cc0000" strokeType="OUTSIDE" strokeWidth="3.3" width="189.00000610351563" />
-                              </children>
-                            </StackPane>
                           </children>
                         </VBox>
                       </children>
