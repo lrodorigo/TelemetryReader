@@ -29,7 +29,8 @@ import java.util.ResourceBundle;
 
 public class MainScene extends Application implements Initializable {
 
- //  public Rectangle orizzonte;
+    public Label statusConsole;
+    //  public Rectangle orizzonte;
     @FXML
     private TextField covStatAccTxt;
 
