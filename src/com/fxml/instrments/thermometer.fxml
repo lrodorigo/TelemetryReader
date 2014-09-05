@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="false" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
     <StackPane prefHeight="400.0000999999975" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
         <ImageView fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
           <image>
-            <Image url="@../../graphic/themometer_base.png" />
+            <Image url="@../../../../graphic/themometer_base.png" />
           </image>
         </ImageView>
         <ImageView fx:id="altLancLunga" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../../graphic/thermometer_lancetta.png" />
+            <Image url="@../../../../graphic/thermometer_lancetta.png" />
           </image>
         </ImageView>
       </children>
