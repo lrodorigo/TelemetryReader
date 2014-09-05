@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <AnchorPane id="AnchorPane" fx:id="altimeterMainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="false" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.controller.instruments.AltimeterController">
   <children>
-    <StackPane prefHeight="400.0000999999975" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <StackPane prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <ImageView fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" smooth="true" StackPane.alignment="CENTER">
+        <ImageView fx:id="altCircle" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" smooth="true" StackPane.alignment="CENTER">
           <image>
             <Image url="@../../../../graphic/altimeter_base.png" />
           </image>

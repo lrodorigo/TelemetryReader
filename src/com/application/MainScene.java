@@ -22,7 +22,10 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -72,6 +75,7 @@ public class MainScene extends Application implements Initializable {
     private AltimeterController altimeterController;
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources)   {
         propertyHandler.getInstance().loadProperties();
@@ -85,6 +89,17 @@ public class MainScene extends Application implements Initializable {
         FXMLLoader loader = new FXMLLoader(FXMLUtils.getInstance().getSceneURL("instruments/altimeter"));
         try {
             instrumentsPane.getChildren().set(0,(Node) loader.load());
+            StackPane sp= (StackPane) ((AnchorPane)instrumentsPane.getChildren().get(0)).getChildren().get(0);
+            ImageView iv= (ImageView) sp.getChildren().get(0);
+            System.out.println("IV: " + iv.getFitWidth());
+            System.out.println("IP: " + ((AnchorPane)instrumentsPane.getChildren().get(0)).getPrefWidth());
+
+            //iv.fitWidthProperty().bind(((AnchorPane)instrumentsPane.getChildren().get(0)).widthProperty());
+            //System.out.println(iv);
+
+            //iv.fitWidthProperty().bind(instrumentsPane.widthProperty());
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
