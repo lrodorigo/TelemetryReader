@@ -12,15 +12,14 @@ import java.util.TimerTask;
 
 public class MainImuFakeController implements iDataNotifier {
 
-
 	private MainScene mainScene;
     private Timer timer ;
     double time;
 
-
 	public MainImuFakeController(MainScene t) {
         this.mainScene = t;
         this.timer = new Timer();
+
 
     }
 
@@ -33,15 +32,13 @@ public class MainImuFakeController implements iDataNotifier {
                 time += .1;
             }
         },100,100);
-
-
     }
 
     public void fakeGUIGenerator() {
         this.mainScene.setRis1(String.valueOf(time));
         this.mainScene.rotateOrizzonte(Math.sin(2*Math.PI*time*1/10)*(1/Gyro.D2R));
-        this.mainScene.pushChartData(String.valueOf(time),Math.sin(2*Math.PI*time*1/15)*100);
-
+        if (((long) (time/.1) % 100)== 0)
+            this.mainScene.pushChartData(String.valueOf(time),Math.sin(2*Math.PI*time*1/15)*100);
 
     }
 
