@@ -21,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -30,7 +29,7 @@ import java.util.ResourceBundle;
 
 public class MainScene extends Application implements Initializable {
 
-    public Rectangle orizzonte;
+ //   public Rectangle orizzonte;
     @FXML
     private TextField covStatAccTxt;
 
@@ -79,11 +78,6 @@ public class MainScene extends Application implements Initializable {
         this.mainImuController  = new MainImuFakeController(this);
         System.out.println("Chiamato!");
     }
-
-
-
-
-
 
     public void setRis1(final String t) {
         Platform.runLater(new Runnable() {
@@ -231,12 +225,12 @@ public class MainScene extends Application implements Initializable {
     }
 
     public void rotateOrizzonte(final double angle) {
-        Platform.runLater(new Runnable() {
+       /* Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 orizzonte.setRotate(angle);
             }
-        });
+        });*/
 
     }
 
