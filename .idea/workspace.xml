@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fea23dc-beb1-44b2-a565-7351568e0138" name="Default" comment="Mod">
-      <change type="MOVED" beforePath="C:\Users\LuiSs\workspace\TelemetryReader\fxml\instrments\altimeter.fxml" afterPath="$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml" />
-      <change type="MOVED" beforePath="C:\Users\LuiSs\workspace\TelemetryReader\fxml\instrments\thermometer.fxml" afterPath="$PROJECT_DIR$/src/com/fxml/instrments/thermometer.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml" afterPath="$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TelemetryReader.iws" />
@@ -43,21 +42,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="altimeter.fxml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="altimeter.fxml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="660">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="thermometer.fxml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="thermometer.fxml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/fxml/instrments/thermometer.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6666667" vertical-offset="0" max-vertical-offset="660">
-              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="580">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -139,6 +138,7 @@
         <option value="$PROJECT_DIR$/src/com/fxml/MainScene.css" />
         <option value="$PROJECT_DIR$/fxml/instrments/altimeter.fxml" />
         <option value="$PROJECT_DIR$/src/com/fxml/instrments/thermometer.fxml" />
+        <option value="$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml" />
       </list>
     </option>
   </component>
@@ -699,7 +699,11 @@
       <created>1409915161163</created>
       <updated>1409915161163</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Mod">
+      <created>1409915335446</created>
+      <updated>1409915335446</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -742,7 +746,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14483494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="154" y="114" width="469" height="1045" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14483494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="154" y="114" width="469" height="1045" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3323782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -770,9 +774,9 @@
     </option>
     <MESSAGE value="Test 1" />
     <MESSAGE value="Prova di commit one click" />
-    <MESSAGE value="Mod" />
     <MESSAGE value="Aggiunti Strumenti&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti Strumenti&#10;" />
+    <MESSAGE value="Mod" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mod" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1149,18 +1153,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml">
+    <entry file="file://$PROJECT_DIR$/src/com/fxml/instrments/thermometer.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="580">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fxml/instrments/thermometer.fxml">
+    <entry file="file://$PROJECT_DIR$/src/com/fxml/instrments/altimeter.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6666667" vertical-offset="0" max-vertical-offset="660">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="660">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>

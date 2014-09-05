@@ -8,17 +8,17 @@
       <children>
         <ImageView fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
           <image>
-            <Image url="@../../graphic/altimeter_base.png" />
+            <Image url="@../../../../graphic/altimeter_base.png" />
           </image>
         </ImageView>
         <ImageView fx:id="altLancLunga" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../../graphic/altimeter_lancetta_lunga.png" />
+            <Image url="@../../../../graphic/altimeter_lancetta_lunga.png" />
           </image>
         </ImageView>
         <ImageView fx:id="altLancCorta" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../../graphic/altimeter_lancetta_corta.png" />
+            <Image url="@../../../../graphic/altimeter_lancetta_corta.png" />
           </image>
         </ImageView>
       </children>
