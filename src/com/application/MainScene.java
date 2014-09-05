@@ -4,6 +4,7 @@ package com.application;
 import com.controller.MainImuAbstractController;
 import com.controller.MainImuController;
 import com.controller.MainImuFakeController;
+import com.controller.instruments.AltimeterController;
 import com.fxml.FXMLUtils;
 import com.model.user.propertyHandler;
 import javafx.application.Application;
@@ -13,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -20,17 +22,21 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainScene extends Application implements Initializable {
 
     public Label statusConsole;
+
     public CheckBox checkboxDatiSimulati;
     public TextField txtPortaSeriale;
+    public GridPane instrumentsPane;
     //  public Rectangle orizzonte;
     @FXML
     private TextField covStatAccTxt;
@@ -63,17 +69,44 @@ public class MainScene extends Application implements Initializable {
   //private MainImuController mainImuController;
     private MainImuAbstractController mainImuController;
 
+    private AltimeterController altimeterController;
+
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)   {
         propertyHandler.getInstance().loadProperties();
         setupGUI();
 
+        FXMLLoader  ff = new FXMLLoader();
+
         this.mainImuController  = new MainImuController(this);
+        instrumentsPane.getChildren().clear();
+
+        FXMLLoader loader = new FXMLLoader(FXMLUtils.getInstance().getSceneURL("instruments/altimeter"));
+
+        try {
+            instrumentsPane.getChildren().add((Node) loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
-        System.out.println("Chiamato!");
+        this.altimeterController = loader.getController();
+
     }
 
+    public void setAltimeter(double h) {
+        this.altimeterController.setHeight(h);
+    }
+
+    public void setStatusConsole(final String t) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                statusConsole.setText(t);
+            }
+        });
+    }
     public void setRis1(final String t) {
         Platform.runLater(new Runnable() {
             @Override
@@ -123,6 +156,7 @@ public class MainScene extends Application implements Initializable {
         Parent root = FXMLLoader.load(FXMLUtils.getInstance().getSceneURL("MainScene"));
         Scene scene = new Scene(root, 1200, 800);
         scene.getStylesheets().add(FXMLUtils.getInstance().getSceneCSS("MainScene"));
+
         primaryStage.setTitle("IMU Telemetry Reader v1.0");
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -132,6 +166,8 @@ public class MainScene extends Application implements Initializable {
                 System.exit(0);
             }
         });
+
+
         primaryStage.show();
     }
 
@@ -230,11 +266,10 @@ public class MainScene extends Application implements Initializable {
     }
 
     public void storePressParam(ActionEvent actionEvent) {
-        System.out.println("AA:A");
         this.mainImuController.storeAltitudeSettings(Double.valueOf(this.covStatAccTxt.getText()),
-                Double.valueOf(this.covBiasAccTxt.getText()),
-                Double.valueOf(this.covMisAccTxt.getText()),
-                Double.valueOf(this.covMisPressTxt.getText()));
+                                                        Double.valueOf(this.covBiasAccTxt.getText()),
+                                                        Double.valueOf(this.covMisAccTxt.getText()),
+                                                        Double.valueOf(this.covMisPressTxt.getText()));
     }
 
 

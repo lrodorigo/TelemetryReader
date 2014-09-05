@@ -100,6 +100,11 @@ public class modelProxy implements iDataNotifier {
         this.altitudePressureFilter.setCovPress(propertyHandler.getInstance().covPress);
     }
 
+    public void resetAltitudeFilter() {
+        this.altitudePressureFilter.resetFilter();
+    }
+
+
 
     public void startGyroCalibration() {
         this.gyroCalibrator.startIntegration();

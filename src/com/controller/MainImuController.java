@@ -16,14 +16,17 @@ public class MainImuController extends MainImuAbstractController {
 
 
 	public MainImuController(MainScene t) {
-        t.getStatusLbl().setText("KLHJDASKDHJKAS");
+        t.setStatusConsole("In attesa...");
         t.getStatusLbl().requestLayout();
         this.mainScene = t;
         this.timer = new Timer();
     }
 
     public void connect() {
+        this.mainScene.setStatusConsole("Connessione in corso...");
         modelProxy.getInstance().connect();
+        this.mainScene.setStatusConsole("Connessione riuscita!");
+
         this.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -34,7 +37,11 @@ public class MainImuController extends MainImuAbstractController {
     }
 
     public void updateGUI() {
-        this.mainScene.setRis1(String.format("%4.2f m",modelProxy.getInstance().getHeight()));
+        double quota = modelProxy.getInstance().getHeight();
+
+        this.mainScene.setRis1(String.format("%4.2f m",quota));
+
+        this.mainScene.setAltimeter(quota);
     }
 
 
@@ -51,7 +58,7 @@ public class MainImuController extends MainImuAbstractController {
 
     @Override
     public void resetAltitudeFilter() {
-        modelProxy.getInstance().setAltitudeFilter();
+        modelProxy.getInstance().resetAltitudeFilter();
     }
 
     public void storeGyroCalibration(int i) {

@@ -21,15 +21,16 @@ public class MainImuFakeController extends MainImuAbstractController  {
     }
 
     public void fakeGUIGenerator() {
+        double quota = Math.sin(2*Math.PI*time*1/15);
         this.mainScene.setRis1(String.valueOf(time));
         this.mainScene.rotateOrizzonte(Math.sin(2*Math.PI*time*1/10)*(1/Gyro.D2R));
         if (((long) (time/.1) % 100)== 0)
-            this.mainScene.pushChartData(String.valueOf(time),Math.sin(2*Math.PI*time*1/15)*100);
+            this.mainScene.pushChartData(String.valueOf(time),quota);
+        this.mainScene.setAltimeter(quota);
 
     }
 
     public void connect() {
-        System.out.println("Ci sono");
         this.timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
