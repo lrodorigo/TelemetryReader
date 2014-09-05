@@ -119,6 +119,7 @@ public class MainScene extends Application implements Initializable {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(FXMLUtils.getInstance().getSceneURL("MainScene"));
         Scene scene = new Scene(root, 1280, 720);
+        scene.getStylesheets().add("MainScene.css");
         primaryStage.setTitle("IMU Telemetry Reader v1.0");
         primaryStage.setScene(scene);
         primaryStage.show();
