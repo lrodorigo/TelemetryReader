@@ -3,7 +3,7 @@ package com.application;
 
 import com.controller.MainImuFakeController;
 import com.fxml.FXMLUtils;
-import com.user.propertyHandler;
+import com.model.user.propertyHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

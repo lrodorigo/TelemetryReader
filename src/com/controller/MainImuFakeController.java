@@ -2,9 +2,9 @@ package com.controller;
 
 
 import com.application.MainScene;
-import com.imureader.Gyro;
-import com.imureader.iDataNotifier;
-import com.user.propertyHandler;
+import com.model.imureader.Gyro;
+import com.model.imureader.iDataNotifier;
+import com.model.user.propertyHandler;
 import org.la4j.vector.dense.BasicVector;
 
 import java.util.Timer;

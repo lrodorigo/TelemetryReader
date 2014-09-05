@@ -2,21 +2,21 @@
 
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="false" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="AnchorPane" fx:id="altimeterMainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="false" prefHeight="200.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="altimeterController">
   <children>
     <StackPane prefHeight="400.0000999999975" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <ImageView fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+        <ImageView fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" smooth="true" StackPane.alignment="CENTER">
           <image>
             <Image url="@../../../../graphic/altimeter_base.png" />
           </image>
         </ImageView>
-        <ImageView fx:id="altLancLunga" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="altLancLunga" blendMode="SRC_OVER" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" rotate="0.0" smooth="true">
           <image>
             <Image url="@../../../../graphic/altimeter_lancetta_lunga.png" />
           </image>
         </ImageView>
-        <ImageView fx:id="altLancCorta" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="altLancCorta" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" smooth="true">
           <image>
             <Image url="@../../../../graphic/altimeter_lancetta_corta.png" />
           </image>

@@ -2,12 +2,12 @@ package com.controller;
 
 
 import com.application.MainScene;
-import com.calibration.GyroCalibrator;
-import com.filtering.AltitudePressureFilter;
-import com.filtering.ComplementaryFilter;
-import com.imureader.IMUReader;
-import com.imureader.iDataNotifier;
-import com.user.propertyHandler;
+import com.model.calibration.GyroCalibrator;
+import com.model.filtering.AltitudePressureFilter;
+import com.model.filtering.ComplementaryFilter;
+import com.model.imureader.IMUReader;
+import com.model.imureader.iDataNotifier;
+import com.model.user.propertyHandler;
 import org.la4j.vector.dense.BasicVector;
 
 import java.text.SimpleDateFormat;
@@ -21,7 +21,6 @@ public class MainImuController implements iDataNotifier {
     private AltitudePressureFilter altitudePressureFilter;
 	private MainScene mainScene;
 
-	
 	public MainImuController(MainScene t) {
         t.getStatusLbl().setText("KLHJDASKDHJKAS");
         t.getStatusLbl().requestLayout();
@@ -93,7 +92,7 @@ public class MainImuController implements iDataNotifier {
 
     public void storeGyroCalibration(int i) {
         this.gyroCalibrator.storeCalibrationData(i);
-        com.user.propertyHandler.getInstance().write();
+        com.model.user.propertyHandler.getInstance().write();
 
     }
 
@@ -120,8 +119,6 @@ public class MainImuController implements iDataNotifier {
         return out;
     }
 
-
-
     public void storeAltitudeSettings(double covAcc, double covBias, double covAccMis, double covPress) {
 
         if (this.altitudePressureFilter!=null) {
@@ -137,7 +134,6 @@ public class MainImuController implements iDataNotifier {
         propertyHandler.getInstance().covPress = covPress;
 
         propertyHandler.getInstance().write();
-
     }
 
 /*
