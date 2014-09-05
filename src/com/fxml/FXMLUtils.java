@@ -13,6 +13,7 @@ public class FXMLUtils {
     }
 
     private FXMLUtils() {
+
     }
 
   public  URL getSceneURL(String sceneName) {
