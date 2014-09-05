@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1415.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.application.MainScene">
@@ -13,45 +12,94 @@
       <children>
         <TabPane minHeight="-Infinity" prefHeight="512.0" prefWidth="1212.0" side="TOP" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
           <tabs>
-            <Tab text="Startup">
+            <Tab text="Startup Panel">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <HBox alignment="BOTTOM_LEFT" layoutX="0.0" layoutY="422.0" minHeight="21.0" prefHeight="34.999900000002526" prefWidth="1212.0">
-                      <children>
-                        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" HBox.hgrow="ALWAYS">
+                    <BorderPane prefHeight="952.0" prefWidth="1415.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <center>
+                        <GridPane prefHeight="300.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                           <children>
-                            <Label id="connStatusLabel" fx:id="conStatusLbl" prefWidth="418.0" text="Connessione in corso..." HBox.hgrow="ALWAYS">
-                              <HBox.margin>
-                                <Insets left="5.0" />
-                              </HBox.margin>
-                            </Label>
-                            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                            <Label id="connStatusLabel" fx:id="conStatusLbl" prefWidth="219.0" text="Connessione in corso..." GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                               <children>
-                                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#connettiPress" prefWidth="76.0" rotate="360.0" text="Connetti">
+                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#connettiPress" prefWidth="76.0" rotate="360.0" styleClass="settingsButtons" text="Connetti" textAlignment="CENTER">
                                   <rotationAxis>
                                     <Point3D />
                                   </rotationAxis>
                                 </Button>
                               </children>
-                              <padding>
-                                <Insets right="10.0" />
-                              </padding>
-                              <HBox.margin>
-                                <Insets />
-                              </HBox.margin>
                             </HBox>
+                            <Label text="Numero Porta Seriale" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="txtPortaSeriale" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label text="Usa dati simulati" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <CheckBox fx:id="checkboxDatiSimulati" mnemonicParsing="false" onAction="#actionCheckboxDatiSimulati" selected="true" text="Attivo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                           </children>
-                        </HBox>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="158.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="313.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </center>
+                      <padding>
+                        <Insets left="20.0" right="20.0" />
+                      </padding>
+                    </BorderPane>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Control Panel">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <GridPane prefHeight="486.0" prefWidth="707.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <children>
+                        <ImageView fitHeight="362.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <image>
+                            <Image url="@../../../graphic/altimeter_base.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="362.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <image>
+                            <Image url="@../../../graphic/themometer_base.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="362.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <image>
+                            <Image url="@../../../graphic/themometer_base.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="362.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <image>
+                            <Image url="@../../../graphic/themometer_base.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="362.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <image>
+                            <Image url="@../../../graphic/altimeter_base.png" />
+                          </image>
+                          <GridPane.margin>
+                            <Insets />
+                          </GridPane.margin>
+                        </ImageView>
+                        <ImageView fitHeight="362.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <image>
+                            <Image url="@../../../graphic/altimeter_base.png" />
+                          </image>
+                        </ImageView>
                       </children>
-                    </HBox>
-                    <GridPane layoutX="14.0" layoutY="14.0" prefHeight="146.0" prefWidth="471.0">
                       <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="158.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="313.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       </columnConstraints>
                       <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       </rowConstraints>
@@ -60,60 +108,119 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Control Panel">
-              <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
             <Tab text="Data Panel">
               <content>
-                <SplitPane dividerPositions="0.5" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                <SplitPane dividerPositions="0.1506849315068493" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                   <items>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="1413.0">
                       <children>
-                        <VBox id="VBox" alignment="CENTER" prefHeight="382.0" prefWidth="1413.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER" prefHeight="202.0" prefWidth="322.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <children>
-                            <Label id="" fx:id="ris1" prefWidth="1149.0" text="ris1" VBox.vgrow="NEVER">
-                              <font>
-                                <Font size="50.0" fx:id="x1" />
-                              </font>
-                              <VBox.margin>
-                                <Insets />
-                              </VBox.margin>
-                            </Label>
-                            <Label id="" fx:id="ris2" font="$x1" prefWidth="1149.0" text="ris2" VBox.vgrow="NEVER" />
-                            <Label id="" fx:id="ris3" font="$x1" prefWidth="1149.0" text="ris3" VBox.vgrow="NEVER" />
-                            <Label id="" fx:id="ris4" prefHeight="44.0" prefWidth="1149.0" text="ris4" VBox.vgrow="NEVER">
-                              <font>
-                                <Font size="15.0" />
-                              </font>
-                            </Label>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Label prefWidth="170.0" text="Quota:">
+                                  <font>
+                                    <Font size="20.0" fx:id="x1" />
+                                  </font>
+                                  <HBox.margin>
+                                    <Insets right="10.0" fx:id="x7" />
+                                  </HBox.margin>
+                                </Label>
+                                <Label id="" fx:id="ris1" alignment="CENTER_LEFT" prefWidth="400.0" text="ris1" textAlignment="CENTER">
+                                  <font>
+                                    <Font size="30.0" fx:id="x8" />
+                                  </font>
+                                </Label>
+                              </children>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Label font="$x1" prefWidth="170.0" text="Quaternioni:" HBox.margin="$x7" />
+                                <Label id="" fx:id="ris2" font="$x8" prefWidth="400.0" text="ris2" />
+                              </children>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Label font="$x1" prefWidth="170.0" text="Title" HBox.margin="$x7" />
+                                <Label id="" fx:id="ris4" font="$x8" prefHeight="-1.0" prefWidth="400.0" text="ris4" />
+                              </children>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Label font="$x1" prefWidth="170.0" text="Roll-Pitch-Yaw" HBox.margin="$x7" />
+                                <Label id="" fx:id="ris3" font="$x8" prefWidth="400.0" text="ris3" />
+                              </children>
+                            </HBox>
                           </children>
-                        </VBox>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
                       </children>
                     </AnchorPane>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="432.0" prefWidth="1210.0">
                       <children>
-                        <LineChart fx:id="chart" prefHeight="390.0" prefWidth="1210.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </LineChart>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <children>
+                            <LineChart fx:id="chart" prefHeight="650.0" prefWidth="1413.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <xAxis>
+                                <CategoryAxis side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                <NumberAxis side="LEFT" />
+                              </yAxis>
+                            </LineChart>
+                            <LineChart id="chart" prefHeight="650.0" prefWidth="1413.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <xAxis>
+                                <CategoryAxis side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                <NumberAxis side="LEFT" />
+                              </yAxis>
+                            </LineChart>
+                            <LineChart id="chart" prefHeight="650.0" prefWidth="1413.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <xAxis>
+                                <CategoryAxis side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                <NumberAxis side="LEFT" />
+                              </yAxis>
+                            </LineChart>
+                            <LineChart id="chart" prefHeight="650.0" prefWidth="1413.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <xAxis>
+                                <CategoryAxis side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                <NumberAxis side="LEFT" />
+                              </yAxis>
+                            </LineChart>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
                       </children>
                     </AnchorPane>
                   </items>
                 </SplitPane>
               </content>
             </Tab>
-            <Tab text="3D Simulator">
+            <Tab text="3D Simulator Panel">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
-            <Tab text="Settings">
+            <Tab text="Settings Panel">
               <content>
                 <Accordion>
                   <expandedPane>
@@ -135,7 +242,7 @@
                                 </Label>
                                 <fx:reference source="accKpTxt" />
                                 <fx:reference source="x4" />
-                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="186.0" styleClass="settingsButtons" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                                <Button mnemonicParsing="false" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
                                 <Label text="Guadagno kI" GridPane.columnIndex="0" GridPane.rowIndex="2">
                                   <labelFor>
                                     <TextField id="accKpTxt" prefWidth="66.0" />
@@ -250,8 +357,16 @@
                                 </Label>
                                 <TextField id="accKpTxt" fx:id="covMisPressTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                 <TextField id="accKpTxt" fx:id="covMisAccTxt" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <Button mnemonicParsing="false" onAction="#storePressParam" prefHeight="192.0" prefWidth="776.0" styleClass="settingsButtons" text="Store" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
-                                <Button mnemonicParsing="false" onAction="#resetAltStatus" prefHeight="155.0" prefWidth="615.0" styleClass="settingsButtons" text="Reset Stato" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                  <children>
+                                    <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetAltStatus" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Reset Stato" textAlignment="CENTER" />
+                                  </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                  <children>
+                                    <Button mnemonicParsing="false" onAction="#storePressParam" prefHeight="155.0" prefWidth="150.0" styleClass="settingsButtons" text="Store" />
+                                  </children>
+                                </HBox>
                               </children>
                               <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="10.0" prefWidth="222.0" />
@@ -279,7 +394,7 @@
         </TabPane>
         <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="1415.0" styleClass="consoleStatus">
           <children>
-            <Label fx:id="statusConsole" styleClass="" text="Label" />
+            <Label fx:id="statusConsole" styleClass="null" text="Label" />
           </children>
           <padding>
             <Insets left="20.0" right="20.0" />

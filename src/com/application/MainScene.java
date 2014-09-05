@@ -17,10 +17,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -30,22 +27,19 @@ import java.util.ResourceBundle;
 public class MainScene extends Application implements Initializable {
 
     public Label statusConsole;
+    public CheckBox checkboxDatiSimulati;
+    public TextField txtPortaSeriale;
     //  public Rectangle orizzonte;
     @FXML
     private TextField covStatAccTxt;
-
     @FXML
     private TextField covBiasAccTxt;
-
     @FXML
     private TextField covMisPressTxt;
-
     @FXML
     private TextField covMisAccTxt;
-
     @FXML
     private Label conStatusLbl;
-
     @FXML
     private Label ris4;
     @FXML
@@ -62,12 +56,9 @@ public class MainScene extends Application implements Initializable {
     private Button stopGyroCal;
     @FXML
     private TextArea calTextArea;
-
     private XYChart.Series chartSeries;
 
-  //  private MainImuController mainImuController;
-
-
+  //private MainImuController mainImuController;
     private MainImuFakeController mainImuController;
 
     @Override
@@ -89,7 +80,6 @@ public class MainScene extends Application implements Initializable {
         });
     }
 
-
     public void setRis2(final String t) {
         Platform.runLater(new Runnable() {
             @Override
@@ -98,7 +88,6 @@ public class MainScene extends Application implements Initializable {
             }
         });
     }
-
 
     public void setRis3(final String t) {
         Platform.runLater(new Runnable() {
@@ -109,7 +98,6 @@ public class MainScene extends Application implements Initializable {
         });
     }
 
-
     public void setRis4(final String t) {
         Platform.runLater(new Runnable() {
             @Override
@@ -119,11 +107,9 @@ public class MainScene extends Application implements Initializable {
         });
     }
 
-
     public void appendCalTextArea(String t) {
         this.calTextArea.appendText(t + "\n");
     }
-
 
     public static void main(String[] args) {
         launch(args);
@@ -132,7 +118,7 @@ public class MainScene extends Application implements Initializable {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(FXMLUtils.getInstance().getSceneURL("MainScene"));
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, 1200, 800);
         scene.getStylesheets().add(FXMLUtils.getInstance().getSceneCSS("MainScene"));
         primaryStage.setTitle("IMU Telemetry Reader v1.0");
         primaryStage.setScene(scene);
@@ -170,25 +156,17 @@ public class MainScene extends Application implements Initializable {
     }
 
 
-    //setupChart();
-    // text.setFont(Font.font(null, FontWeight.BOLD, 30));
-
-
     public void pushChartData(final String x, final double y) {
-
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 chartSeries.getData().add(new XYChart.Data(x, y));
             }
         });
-
-
     }
 
 
     public void setupChart() {
-
         this.chart.setTitle("Quota [m]");
         CategoryAxis xAxis= (CategoryAxis) this.chart.getXAxis();
         xAxis.setLabel("Ora");
@@ -196,33 +174,7 @@ public class MainScene extends Application implements Initializable {
         yAxis.setLabel("Quota");
 
         this.chartSeries = new XYChart.Series();
-
-        //
-    //    this.chartSeries.setName("My portfolio");
         this.chart.getData().add(this.chartSeries);
-
-//        NumberAxis quota = new NumberAxis();
-//        CategoryAxis ora = new CategoryAxis();
-//        quota.setLabel("Quota (mainImuController)");
-//        ora.setLabel("Ora");
-//    //    this.chart = new LineChart<String, Number>(ora, quota);
-//        XYChart.Series series = new XYChart.Series();
-//        series.setName("My portfolio");
-//
-//        series.getData().add(new XYChart.Data("Jan", 23));
-//        series.getData().add(new XYChart.Data("Feb", 14));
-//        series.getData().add(new XYChart.Data("Mar", 15));
-//        series.getData().add(new XYChart.Data("Apr", 24));
-//        series.getData().add(new XYChart.Data("May", 34));
-//        series.getData().add(new XYChart.Data("Jun", 36));
-//        series.getData().add(new XYChart.Data("Jul", 22));
-//        series.getData().add(new XYChart.Data("Aug", 45));
-//        series.getData().add(new XYChart.Data("Sep", 43));
-//        series.getData().add(new XYChart.Data("Oct", 17));
-//        series.getData().add(new XYChart.Data("Nov", 29));
-//        series.getData().add(new XYChart.Data("Dec", 25));
-//
-//        this.chart.getData().add(series);
     }
 
     public void rotateOrizzonte(final double angle) {
@@ -281,5 +233,10 @@ public class MainScene extends Application implements Initializable {
 
     public void resetAltStatus(ActionEvent actionEvent) {
         this.mainImuController.setupAltitudeFilter();
+    }
+
+
+    public void actionCheckboxDatiSimulati(ActionEvent actionEvent) {
+        this.txtPortaSeriale.setDisable(!this.checkboxDatiSimulati.isSelected());
     }
 }
