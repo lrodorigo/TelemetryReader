@@ -34,12 +34,6 @@
                             <TextField fx:id="txtPortaSeriale" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                             <Label text="Usa dati simulati" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                             <CheckBox fx:id="checkboxDatiSimulati" mnemonicParsing="false" onAction="#actionCheckboxDatiSimulati" selected="true" text="Attivo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                          <DatePicker GridPane.rowIndex="3" />
-                                          <ImageView fitHeight="86.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                                             <image>
-                                                <Image url="@../../../../../Pictures/img010.jpg" />
-                                             </image>
-                                          </ImageView>
                           </children>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="158.0" />
@@ -49,7 +43,6 @@
                             <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                         </GridPane>
                       </center>

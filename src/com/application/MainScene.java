@@ -11,6 +11,8 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -100,14 +102,14 @@ public class MainScene extends Application implements Initializable {
     */
 
 
-    public void resizeGridImagesWidth(){
+    public void resizeGridImagesWidth(final double stageWidth){
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 StackPane sp= (StackPane) ((AnchorPane)instrumentsPane.getChildren().get(0)).getChildren().get(0);
                 for( Node n: sp.getChildren()) {
                     ImageView iv= (ImageView) n;
-                    DoubleProperty db= new SimpleDoubleProperty(sceneWidth/3 - 50);
+                    DoubleProperty db= new SimpleDoubleProperty(stageWidth/3 - 50);
                     iv.fitWidthProperty().bind(db);
                 }
             }
@@ -128,7 +130,7 @@ public class MainScene extends Application implements Initializable {
         FXMLLoader loader = new FXMLLoader(FXMLUtils.getInstance().getSceneURL("instruments/altimeter"));
         try {
             instrumentsPane.getChildren().set(0,(Node) loader.load());
-            resizeGridImagesWidth();
+            resizeGridImagesWidth(this.sceneWidth);
 
             //resizeGridImagesWidth(this.sceneWidth);
             //iv.fitWidthProperty().bind(((AnchorPane)instrumentsPane.getChildren().get(0)).widthProperty());
@@ -215,15 +217,15 @@ public class MainScene extends Application implements Initializable {
             }
         });
 
-        /*
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                resizeGridImagesWidth();
+                resizeGridImagesWidth(newSceneWidth.doubleValue());
             }
         });
 
+        /*
         scene.heightProperty().addListener(new ChangeListener<Number>() {
-            @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
+            @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
                 System.out.println("WINDOW HEIGHT RESIZED");
             }
         });
