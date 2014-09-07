@@ -9,6 +9,10 @@ import com.fxml.FXMLUtils;
 import com.model.user.propertyHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -69,11 +73,48 @@ public class MainScene extends Application implements Initializable {
     private TextArea calTextArea;
     private XYChart.Series chartSeries;
 
-  //private MainImuController mainImuController;
+    private Scene scene;
+
+    //private MainImuController mainImuController;
     private MainImuAbstractController mainImuController;
 
     private AltimeterController altimeterController;
 
+    private double sceneWidth= 1200;
+    private double sceneHeight= 800;
+
+
+    /*
+    public void resizeGridImagesWidth(final double width){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                StackPane sp= (StackPane) ((AnchorPane)instrumentsPane.getChildren().get(0)).getChildren().get(0);
+
+                for( Node n: sp.getChildren()) {
+                    ImageView iv= (ImageView) n;
+                    //iv.setFitWidth((width/3)-50);
+
+                }
+            }
+        });
+    }
+    */
+
+
+    public void resizeGridImagesWidth(final double stageWidth){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                StackPane sp= (StackPane) ((AnchorPane)instrumentsPane.getChildren().get(0)).getChildren().get(0);
+                for( Node n: sp.getChildren()) {
+                    ImageView iv= (ImageView) n;
+                    DoubleProperty db= new SimpleDoubleProperty(stageWidth/3 - 50);
+                    iv.fitWidthProperty().bind(db);
+                }
+            }
+        });
+    }
 
 
     @Override
@@ -89,16 +130,12 @@ public class MainScene extends Application implements Initializable {
         FXMLLoader loader = new FXMLLoader(FXMLUtils.getInstance().getSceneURL("instruments/altimeter"));
         try {
             instrumentsPane.getChildren().set(0,(Node) loader.load());
-            StackPane sp= (StackPane) ((AnchorPane)instrumentsPane.getChildren().get(0)).getChildren().get(0);
-            ImageView iv= (ImageView) sp.getChildren().get(0);
-            System.out.println("IV: " + iv.getFitWidth());
-            System.out.println("IP: " + ((AnchorPane)instrumentsPane.getChildren().get(0)).getPrefWidth());
+            resizeGridImagesWidth(this.sceneWidth);
 
+            //resizeGridImagesWidth(this.sceneWidth);
             //iv.fitWidthProperty().bind(((AnchorPane)instrumentsPane.getChildren().get(0)).widthProperty());
             //System.out.println(iv);
-
             //iv.fitWidthProperty().bind(instrumentsPane.widthProperty());
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -167,7 +204,7 @@ public class MainScene extends Application implements Initializable {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(FXMLUtils.getInstance().getSceneURL("MainScene"));
-        Scene scene = new Scene(root, 1200, 800);
+        scene = new Scene(root, this.sceneWidth, this.sceneHeight);
         scene.getStylesheets().add(FXMLUtils.getInstance().getSceneCSS("MainScene"));
 
         primaryStage.setTitle("IMU Telemetry Reader v1.0");
@@ -180,6 +217,19 @@ public class MainScene extends Application implements Initializable {
             }
         });
 
+        scene.widthProperty().addListener(new ChangeListener<Number>() {
+            @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
+                resizeGridImagesWidth(newSceneWidth.doubleValue());
+            }
+        });
+
+        /*
+        scene.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
+                System.out.println("WINDOW HEIGHT RESIZED");
+            }
+        });
+        */
 
         primaryStage.show();
     }
