@@ -24,7 +24,7 @@ public class MainImuController extends MainImuAbstractController {
 
     public void connect() {
         this.mainScene.setStatusConsole("Connessione in corso...");
-        modelProxy.getInstance().connect();
+        modelProxy.getInstance().connect("COM35");
         this.mainScene.setStatusConsole("Connessione riuscita!");
 
         this.timer.scheduleAtFixedRate(new TimerTask() {

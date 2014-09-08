@@ -66,11 +66,11 @@ public class modelProxy implements iDataNotifier {
 
 
 
-    public void connect() {
+    public void connect(String portName) {
         //     t.setStatusLabel("Connessione in corso ...");
 
         boolean e;
-        e = imuReader.start("COM33", 115200, 20000);
+        e = imuReader.start(portName, 115200, 20000);
 
         if (!e) {
             return;
