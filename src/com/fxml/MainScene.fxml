@@ -204,7 +204,14 @@
             </Tab>
             <Tab text="3D Simulator Panel">
               <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="234.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#import3DModel" text="IMPORT 3D MODEL" />
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Settings Panel">

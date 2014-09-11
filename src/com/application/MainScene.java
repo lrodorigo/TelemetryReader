@@ -1,6 +1,7 @@
 package com.application;
 
 
+import com.controller.Airplane3DImporter;
 import com.controller.MainImuAbstractController;
 import com.controller.MainImuController;
 import com.controller.MainImuFakeController;
@@ -12,8 +13,6 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -115,6 +114,7 @@ public class MainScene extends Application implements Initializable {
                 }
             }
         });
+
     }
 
 
@@ -220,13 +220,15 @@ public class MainScene extends Application implements Initializable {
             }
         });
 
+
+
+        /*
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
                 resizeGridImagesWidth(newSceneWidth.doubleValue());
             }
         });
 
-        /*
         scene.heightProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
                 System.out.println("WINDOW HEIGHT RESIZED");
@@ -236,6 +238,10 @@ public class MainScene extends Application implements Initializable {
 
         primaryStage.show();
     }
+
+
+
+
 
     public Label getStatusLbl() {
         return conStatusLbl;
@@ -347,5 +353,10 @@ public class MainScene extends Application implements Initializable {
 
     public void actionCheckboxDatiSimulati(ActionEvent actionEvent) {
         this.txtPortaSeriale.setDisable(this.checkboxDatiSimulati.isSelected());
+    }
+
+    public void import3DModel(ActionEvent actionEvent) {
+        Airplane3DImporter airplaneController= new Airplane3DImporter(this.scene);
+        airplaneController.importSTLModel();
     }
 }
