@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.application.MainScene;
-import com.model.user.propertyHandler;
 import org.la4j.vector.dense.BasicVector;
 
 /**
@@ -19,10 +18,10 @@ public abstract class MainImuAbstractController {
     public abstract BasicVector doGyroZero();
 
     public void storeAltitudeSettings(double covAcc, double covBias, double covAccMis, double covPress) {
-        propertyHandler.getInstance().covAcc = covAcc;
-        propertyHandler.getInstance().covBias = covBias;
-        propertyHandler.getInstance().covAccMis = covAccMis;
-        propertyHandler.getInstance().covPress = covPress;
-        propertyHandler.getInstance().write();
+
+    }
+
+    public void writeProperties() {
+
     }
 }

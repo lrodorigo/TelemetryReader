@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class IMUReader implements iDataNotifier {
 	
 	public final static  int  	DATA_SIZE = 28;
-	public final static float  SAMPLE_TIME_SEC = 0.040f;
+	public final static float  SAMPLE_TIME_SEC = 0.020f;
 	
 	private SerialPacketReader r; 
 	private Gyro  gyro;
@@ -17,7 +17,8 @@ public class IMUReader implements iDataNotifier {
 	private ArrayList<iDataNotifier> subscriver;
 	private float press;
 	private float temp;
-
+    private long packetId;
+    private long nanoPacket;
 	
 	public boolean newDataAvailable() {
 		return r.newDataAvailable();
@@ -25,7 +26,7 @@ public class IMUReader implements iDataNotifier {
 
     public String toString() {
         String out;
-        out = "Omega: " + this.gyro.getOmega().toString() + "\t Acc:" + this.acc.getAcc().toString()+ "\nPress:" + this.press + "\t Temp:"+this.temp;
+        out = "Omega: " + this.gyro.getOmega().toString() + "\t Acc:" + this.acc.getAcc().toString() + "\n Mag: " + this.mag.getMag().toString() + " \tPress:" + this.press + "\t Temp:"+this.temp;
         return out;
     }
 
@@ -33,7 +34,7 @@ public class IMUReader implements iDataNotifier {
 		 updateData();
 		 return this.gyro;
 	}
-	
+
 	public Acc getAcc() {
 		 updateData();
 		 return this.acc;
@@ -57,13 +58,14 @@ public class IMUReader implements iDataNotifier {
 
 	private void updateData() {
 		byte[] dati;
-		
+
 		if (this.r.newDataAvailable()) {
 			dati = r.getData();
 		    RawDataPacket pack = new RawDataPacket(dati);
 			//System.out.println(pack.toString());
 		    this.gyro.setData(pack.omega);
 		    this.acc.setData(pack.acc);
+            this.packetId = pack.id;
 		    this.mag.setData(pack.mag);
 		    this.press  = pack.press;
 		    this.temp 	   = pack.temp;
@@ -79,7 +81,11 @@ public class IMUReader implements iDataNotifier {
 		this.acc = new Acc();
 		this.mag = new Mag();
 	}
-	
+
+    public long getPacketId() {
+        return this.packetId;
+    }
+
 	public static IMUReader getInstance(){
 		if( instance==null )	instance= new IMUReader();
 		return instance;
@@ -88,6 +94,7 @@ public class IMUReader implements iDataNotifier {
 	public boolean  start(String comPort, int baud) {
 		return this.start(comPort,baud,2000);
 	}
+
 	public void notifyToAll() {
 		for (iDataNotifier n:this.subscriver) 
 			if (n!=null) 
@@ -138,33 +145,35 @@ public class IMUReader implements iDataNotifier {
 	
 	
 	public void CalibrateAcc() {
+        /*
 		AccelerometerCalibrator c = new AccelerometerCalibrator();
-		
-		
-		  long startTime;
+		long startTime;
 
 	    for (int i=0;i<6;i++) {
+
 	    	System.out.println("Posizionarsi in posizione "+ (i+1));
-	    	Utils.sleep(3000);
-	    	System.out.println("Mantenere la posizione pi� fermamente possibile");	 
-	    	startTime = System.currentTimeMillis();
+	    	System.out.println("Mantenere la posizione più fermamente possibile");
+	    	startTime    = System.currentTimeMillis();
 			while ((System.currentTimeMillis()-startTime) < 5000) {
-				c.waitGoodPoint(this);
+				c.waitGoodPoint();
 				c.addPoint(this);
 				System.out.println("Punto Preso");
 			}
 	    }
-		
+
 		System.out.println("ZERO:"+c.getZeroValues().toString());
 		System.out.println("SENS:"+c.getSensValues().toString());
+		*/
 	}
 
 	@Override
 	public void notifyDataUpdate() {
-		this.updateData();		
-		this.notifyToAll();
+
+        this.updateData();
+     //   System.out.println(this.packetId + "-"+System.nanoTime());
+        this.notifyToAll();
+
 	}
-	
-	
-	
+
+
 }

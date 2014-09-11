@@ -25,6 +25,7 @@ public class MainImuController extends MainImuAbstractController {
     public void connect() {
         this.mainScene.setStatusConsole("Connessione in corso...");
         modelProxy.getInstance().connect("COM35");
+
         this.mainScene.setStatusConsole("Connessione riuscita!");
 
         this.timer.scheduleAtFixedRate(new TimerTask() {
@@ -32,7 +33,7 @@ public class MainImuController extends MainImuAbstractController {
             public void run() {
                 updateGUI();
             }
-        },100,100);
+        },50,50);
 
     }
 
@@ -40,7 +41,9 @@ public class MainImuController extends MainImuAbstractController {
         double quota = modelProxy.getInstance().getHeight();
 
         this.mainScene.setRis1(String.format("%4.2f m",quota));
-
+        this.mainScene.setRis2(modelProxy.getInstance().getImuString());
+        this.mainScene.setRis4(String.valueOf(modelProxy.getInstance().getMag().norm()));
+        this.mainScene.setRis3(modelProxy.getInstance().getRollPitchYaw().toString());
         this.mainScene.setAltimeter(quota);
     }
 
@@ -72,13 +75,19 @@ public class MainImuController extends MainImuAbstractController {
     }
 
     public BasicVector doGyroZero() {
-       return modelProxy.getInstance().doGyroZero();
+        return null;
+        // TODO:
     }
 
     public void storeAltitudeSettings(double covAcc, double covBias, double covAccMis, double covPress) {
 
         modelProxy.getInstance().storeAltitudeSettings(covAcc,covBias,covAccMis,covPress);
 
+    }
+
+    @Override
+    public void writeProperties() {
+        modelProxy.getInstance().writeAllProperties();
     }
 
 

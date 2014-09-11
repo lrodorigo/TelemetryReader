@@ -9,7 +9,7 @@ public class Gyro {
 	  private       BasicVector    omega      = new BasicVector();
 
 	  public        BasicVector    zero     = MatrixFactory.vector3(0, 0, 0);
-      public        Matrix  	   sens     = MatrixFactory.diagMatrix3(0.0144, 0.0144, 0.0142);
+      public        Matrix  	   sens     = MatrixFactory.diagMatrix3(0.00763358779, 0.00763358779, 0.00763358779);
       
       public final static double D2R = Math.PI/180;
       

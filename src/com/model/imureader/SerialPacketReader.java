@@ -22,7 +22,8 @@ public class SerialPacketReader implements Runnable {
 	private iDataNotifier notifier=null;
 	private SerialPort serial;
 	
-	
+	long lastData;
+
 	public final static char    START_CHAR = 'S';
 	public final static char    END_CHAR = 'E';
 	
@@ -43,6 +44,7 @@ public class SerialPacketReader implements Runnable {
 			this.serial = (SerialPort) port.open("name", 1500);
             this.serial.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
 			this.serial.setSerialPortParams(baudRate, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+            this.serial.setInputBufferSize(64000);
 
 			this.readThread = new Thread(this,"SERIAL-READER");
 			this.running = true;
@@ -126,7 +128,6 @@ public class SerialPacketReader implements Runnable {
 					synchronized (this.data) {		
 						for (int i=0;i<dataSize;i++) 
 							this.data[i] = dati[i] ;
-
 						this.started = true;
 						this.newData=true;
 						if (this.notifier!=null)
@@ -142,6 +143,7 @@ public class SerialPacketReader implements Runnable {
 		}
 		System.out.println("USCITO!");
 	}
+
 
 	public boolean newDataAvailable() {
 		return this.newData;

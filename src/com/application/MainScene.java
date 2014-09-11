@@ -6,6 +6,7 @@ import com.controller.MainImuController;
 import com.controller.MainImuFakeController;
 import com.controller.instruments.AltimeterController;
 import com.fxml.FXMLUtils;
+import com.model.user.DataLogger;
 import com.model.user.propertyHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -212,6 +213,8 @@ public class MainScene extends Application implements Initializable {
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent t) {
+                DataLogger.getInstance().closeAll();
+                mainImuController.writeProperties();
                 Platform.exit();
                 System.exit(0);
             }
@@ -343,6 +346,6 @@ public class MainScene extends Application implements Initializable {
 
 
     public void actionCheckboxDatiSimulati(ActionEvent actionEvent) {
-        this.txtPortaSeriale.setDisable(!this.checkboxDatiSimulati.isSelected());
+        this.txtPortaSeriale.setDisable(this.checkboxDatiSimulati.isSelected());
     }
 }

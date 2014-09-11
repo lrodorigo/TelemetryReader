@@ -4,6 +4,7 @@ import com.model.imureader.IMUReader;
 import com.model.imureader.iDataNotifier;
 import com.model.math.MatrixFactory;
 import com.model.math.Quaternion;
+import org.la4j.matrix.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.vector.dense.BasicVector;
 
@@ -39,9 +40,9 @@ public class AltitudePressureFilter implements iDataNotifier {
     public final static double g = 9.806;
 
     public final static double DEFAULT_COV_ACC = .7;
-    public final static double DEFAULT_COV_BIAS = 1e-4;
-    public final static double DEFAULT_COV_PRESS = .1*.1;
-    public final static double DEFAULT_COV_ACC_MIS = .3*.3;
+    public final static double DEFAULT_COV_BIAS = 1e-7;
+    public final static double DEFAULT_COV_PRESS = .2*.2;
+    public final static double DEFAULT_COV_ACC_MIS = .2*.2;
 
     public  double covAcc    = DEFAULT_COV_ACC;
     public  double covBias   = DEFAULT_COV_BIAS;
@@ -74,14 +75,14 @@ public class AltitudePressureFilter implements iDataNotifier {
         this.gamma = a/T0;
         this.A = new Basic2DMatrix(new double[][]{
                                                 { 1, dt, .5*dt*dt, 0 },
-                                                { 0, 1, dt, 0 },
-                                                { 0, 0, 1,0 },
-                                                { 0, 0,0,1 } });
+                                                { 0, 1,      dt,   0 },
+                                                { 0, 0,       1,   0 },
+                                                { 0, 0,       0,   1 } });
         this.C = new Basic2DMatrix(2,4);
         this.C.set(0,0,-gamma*beta*p0);
         this.C.set(1,2,1);
         this.C.set(1,3,1);
-        this.P = (Basic2DMatrix) MatrixFactory.identityMatrix(4).multiply(.1);
+        this.P = (Basic2DMatrix) MatrixFactory.identityMatrix(4).multiply(.00001);
 
         generateCovariances();
 
@@ -116,7 +117,7 @@ public class AltitudePressureFilter implements iDataNotifier {
     }
 
     public void resetFilter() {
-        this.P = (Basic2DMatrix) MatrixFactory.identityMatrix(4).multiply(.1);
+        this.P = (Basic2DMatrix) MatrixFactory.identityMatrix(4).multiply(.000001);
         this.state = new BasicVector(4);
     }
 
@@ -174,7 +175,12 @@ public class AltitudePressureFilter implements iDataNotifier {
         BasicVector meas = new BasicVector(new double[] {measPressure - p0, acc_z_mis});
         BasicVector residual = (BasicVector) meas.subtract(this.C.multiply(this.state));
 
-        Basic2DMatrix K = (Basic2DMatrix) P.multiply(C.transpose()).multiply(      MatrixFactory.invert    (C.multiply(P).multiply(C.transpose()).add(G)   ));
+        Matrix to_invert = C.multiply(P).multiply(C.transpose());
+        to_invert = to_invert.add(G);
+
+        Matrix K = P.multiply(C.transpose());
+        K = K.multiply( MatrixFactory.invert(to_invert));
+
         this.state = (BasicVector) this.state.add(K.multiply(residual));
         this.P = (Basic2DMatrix) ( MatrixFactory.identityMatrix(4).subtract(K.multiply(C)) ).multiply(P);
 
@@ -227,6 +233,7 @@ public class AltitudePressureFilter implements iDataNotifier {
         updateZeroParameters();
 
     }
+
 
 
     @Override

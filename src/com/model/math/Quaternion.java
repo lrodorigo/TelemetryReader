@@ -94,9 +94,12 @@ public class Quaternion extends BasicVector {
 		
 		out.set(3,0, -this.q2());
 		out.set(3,1, this.q1());
-		out.set(3,2, -this.q0());
-		
-		return out;
+		out.set(3,2, this.q0());
+/*
+        System.out.println(this.toString());
+        System.out.println(out.toString());
+*/
+        return out;
 		
 		
 		

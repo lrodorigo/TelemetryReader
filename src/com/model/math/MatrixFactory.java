@@ -82,16 +82,32 @@ public class MatrixFactory {
 			out.set(i,Double.parseDouble(d[i]));
 		return out;
 	}
-	
-	public static String vectorToString(BasicVector v) {
-	 String out="";
-	 for (int i=0;i<v.length();i++)
-		 out += v.get(i) + "#";
-	 return out;
-	 
-	} 
 
-	public static String matrixToString(Matrix m) {
+    public static String vectorToString(BasicVector v) {
+        String out="";
+        for (int i=0;i<v.length();i++)
+            out += v.get(i) + "#";
+        return out;
+
+    }
+
+    public static String vectorToString(String separator,BasicVector... vectors) {
+
+        String out=String.valueOf(vectors[0].get(0));
+        for (int j=0;j<vectors.length;j++){
+            int i;
+            if (j!=0)
+                i=0;
+            else
+                i=1;
+            for (; i < vectors[j].length(); i++)
+                out += separator + String.valueOf(vectors[j].get(i));
+        }
+        return out;
+
+    }
+
+    public static String matrixToString(Matrix m) {
 	
 		String out="";
 		

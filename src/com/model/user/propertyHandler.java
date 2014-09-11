@@ -136,11 +136,11 @@ public class propertyHandler {
 
 		this.gyroSens = MatrixFactory.matrixFromString(prop.getProperty(this.GYRO_SENS));
 		
-		this.accSens = MatrixFactory.matrixFromString(prop.getProperty(this.ACC_SENS));
-		this.accZero = MatrixFactory.vectorFromString(prop.getProperty(this.ACC_ZERO));
+		this.accSens = MatrixFactory.matrixFromString(prop.getProperty(this.ACC_SENS,MatrixFactory.matrixToString(Acc.DEFAULT_ACC_SENS)));
+		this.accZero = MatrixFactory.vectorFromString(prop.getProperty(this.ACC_ZERO,MatrixFactory.vectorToString(Acc.DEFAULT_ACC_ZERO)));
 
-		this.magSens = MatrixFactory.matrixFromString(prop.getProperty(this.MAG_SENS));
-		this.magZero = MatrixFactory.vectorFromString(prop.getProperty(this.MAG_ZERO));
+		this.magSens = MatrixFactory.matrixFromString(prop.getProperty(this.MAG_SENS,MatrixFactory.matrixToString(Mag.DEFAULT_MAG_SENS)));
+		this.magZero = MatrixFactory.vectorFromString(prop.getProperty(this.MAG_ZERO,MatrixFactory.vectorToString(Mag.DEFAULT_MAG_ZERO)));
 
         this.covAcc = Double.parseDouble(prop.getProperty(this.COV_ACC,Double.toString(AltitudePressureFilter.DEFAULT_COV_ACC)));
         this.covAccMis = Double.parseDouble(prop.getProperty(this.COV_ACC_MIS,Double.toString(AltitudePressureFilter.DEFAULT_COV_ACC_MIS)));

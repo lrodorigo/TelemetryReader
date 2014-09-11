@@ -5,15 +5,14 @@ import com.model.imureader.iDataNotifier;
 import com.model.math.MatrixFactory;
 import org.la4j.vector.dense.BasicVector;
 
-public class GyroCalibrator implements iDataNotifier {
+public class GyroSensCalibrator implements iDataNotifier {
 	
 	private BasicVector acc;
 	private boolean enabled;
-
+    private long sampleCount;
     private BasicVector lastComputedValue;
 
-	
-	public GyroCalibrator() {
+	public GyroSensCalibrator() {
 		this.acc = new BasicVector(3);
 		this.enabled = false;
 	}
@@ -36,9 +35,10 @@ public class GyroCalibrator implements iDataNotifier {
              return this.lastComputedValue;
 	}
 
-
-	
 	public void storeCalibrationData(int i) {
+        if (this.lastComputedValue.get(i)<0)
+            this.lastComputedValue.set(i,-this.lastComputedValue.get(i));
+
 		IMUReader.getInstance().getGyro().sens.set(i,i, (1/this.lastComputedValue.get(i)));
 	}
 	

@@ -6,7 +6,7 @@
   <children>
     <StackPane prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <ImageView fx:id="altCircle" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" smooth="true" StackPane.alignment="CENTER">
+        <ImageView fx:id="altBase" fitHeight="622.375" fitWidth="622.375" pickOnBounds="true" preserveRatio="true" smooth="true" StackPane.alignment="CENTER">
           <image>
             <Image url="@../../../../graphic/altimeter_base.png" />
           </image>

@@ -5,10 +5,15 @@ import org.la4j.matrix.Matrix;
 import org.la4j.vector.dense.BasicVector;
 
 public class Acc {
-	  private       int[]         rawAcc   = new int[3];
+
+    public static Matrix DEFAULT_ACC_SENS = MatrixFactory.diagMatrix3(1/1676.453, 1/1690.928, 1/1695.617);
+    public static BasicVector DEFAULT_ACC_ZERO = MatrixFactory.vector3(58,  0, -22);
+
+
+    private       int[]         rawAcc   = new int[3];
 	  private       BasicVector    acc      = new BasicVector();
-	  public        BasicVector    zero      = MatrixFactory.vector3(58,  0, -22);
-      public        Matrix  	   sens     = MatrixFactory.diagMatrix3(1/1676.453, 1/1690.928, 1/1695.617);
+	  public        BasicVector    zero      = DEFAULT_ACC_ZERO;
+      public        Matrix  	   sens     = DEFAULT_ACC_SENS;
       
 	 public void setData(int[] rawAcc) {
 	    this.rawAcc = rawAcc;
