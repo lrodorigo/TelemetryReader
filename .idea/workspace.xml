@@ -2,30 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fea23dc-beb1-44b2-a565-7351568e0138" name="Default" comment="Mega Modifica">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/model/calibration/AccRoughCalibrator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/model/user/DataLogger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/model/calibration/GyroZeroCalibrator.java" />
-      <change type="DELETED" beforePath="C:\Users\LuiSs\workspace\TelemetryReader\src\com\model\imureader\AccelerometerCalibrator.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\LuiSs\workspace\TelemetryReader\src\com\model\calibration\GyroCalibrator.java" afterPath="$PROJECT_DIR$/src/com/model/calibration/GyroSensCalibrator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/imureader/Acc.java" afterPath="$PROJECT_DIR$/src/com/model/imureader/Acc.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/controller/instruments/AltimeterController.java" afterPath="$PROJECT_DIR$/src/com/controller/instruments/AltimeterController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/filtering/AltitudePressureFilter.java" afterPath="$PROJECT_DIR$/src/com/model/filtering/AltitudePressureFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/filtering/ComplementaryFilter.java" afterPath="$PROJECT_DIR$/src/com/model/filtering/ComplementaryFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/imureader/Gyro.java" afterPath="$PROJECT_DIR$/src/com/model/imureader/Gyro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/imureader/IMUReader.java" afterPath="$PROJECT_DIR$/src/com/model/imureader/IMUReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/imureader/Mag.java" afterPath="$PROJECT_DIR$/src/com/model/imureader/Mag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/controller/MainImuAbstractController.java" afterPath="$PROJECT_DIR$/src/com/controller/MainImuAbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/controller/MainImuController.java" afterPath="$PROJECT_DIR$/src/com/controller/MainImuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/fxml/MainScene.fxml" afterPath="$PROJECT_DIR$/src/com/fxml/MainScene.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/application/MainScene.java" afterPath="$PROJECT_DIR$/src/com/application/MainScene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/math/MatrixFactory.java" afterPath="$PROJECT_DIR$/src/com/model/math/MatrixFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/math/Quaternion.java" afterPath="$PROJECT_DIR$/src/com/model/math/Quaternion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/imureader/SerialPacketReader.java" afterPath="$PROJECT_DIR$/src/com/model/imureader/SerialPacketReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/fxml/instruments/altimeter.fxml" afterPath="$PROJECT_DIR$/src/com/fxml/instruments/altimeter.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/filtering/iAttitudeEstimator.java" afterPath="$PROJECT_DIR$/src/com/model/filtering/iAttitudeEstimator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/modelProxy.java" afterPath="$PROJECT_DIR$/src/com/model/modelProxy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/model/user/propertyHandler.java" afterPath="$PROJECT_DIR$/src/com/model/user/propertyHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TelemetryReader.iws" />
@@ -81,11 +57,11 @@
       <file leaf-file-name="MainScene.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/application/MainScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2699" max-vertical-offset="5220">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4079" max-vertical-offset="7340">
               <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
               <folding>
-                <element signature="e#6140#6438#0" expanded="true" />
-                <element signature="e#6427#6428#0" expanded="true" />
+                <element signature="e#6098#6396#0" expanded="true" />
+                <element signature="e#6385#6386#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,20 +89,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TelemetryReader.iml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TelemetryReader.iml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TelemetryReader.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1659751" vertical-offset="37" max-vertical-offset="1080">
-              <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="597" max-vertical-offset="1620">
+              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GyroSensCalibrator.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GyroSensCalibrator.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/model/calibration/GyroSensCalibrator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="1120">
+            <state vertical-scroll-proportion="0.38865837" vertical-offset="339" max-vertical-offset="1120">
               <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
               <folding />
             </state>
@@ -972,7 +948,11 @@
       <created>1410022078743</created>
       <updated>1410022078743</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Mega Modifica">
+      <created>1410423566115</created>
+      <updated>1410423566115</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -997,7 +977,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37249285" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1007,7 +987,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760268" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3992359" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28462273" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16236867" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37153772" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1016,7 +996,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13258786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="154" y="114" width="469" height="1045" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13258786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="154" y="114" width="469" height="1045" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28462273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1358,14 +1338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/model/calibration/GyroSensCalibrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="1120">
-          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/controller/MainImuAbstractController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="640">
@@ -1406,8 +1378,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2699" max-vertical-offset="5220">
           <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
           <folding>
-            <element signature="e#6140#6438#0" expanded="true" />
-            <element signature="e#6427#6428#0" expanded="true" />
+            <element signature="e#6098#6396#0" expanded="true" />
+            <element signature="e#6385#6386#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1432,8 +1404,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TelemetryReader.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1659751" vertical-offset="37" max-vertical-offset="1080">
-          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="597" max-vertical-offset="1620">
+          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/model/calibration/GyroSensCalibrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38865837" vertical-offset="339" max-vertical-offset="1120">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
           <folding />
         </state>
       </provider>
